@@ -41,4 +41,5 @@
     Scenario: Color
       Given Favorite color "blue" and Not favorite color "red"
 
-
+    Scenario: Arrays week days
+      Given I print "7" day of the week from array

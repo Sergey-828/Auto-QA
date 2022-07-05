@@ -3,7 +3,6 @@ package definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.remote.server.handler.DeleteSession;
 
 
 public class JavaStepDefs {
@@ -93,7 +92,6 @@ public class JavaStepDefs {
     }
 
 
-
     @Given("I print {string} th day of week")
     public void iPrintThDayOfWeek(String enter) {
         int day = Integer.parseInt(enter);
@@ -114,9 +112,9 @@ public class JavaStepDefs {
         int n = Integer.parseInt(num);
         if (n == 35) {
             System.out.println("Number is positive");
-        } else if (n < 0){
+        } else if (n < 0) {
             System.out.println("Number is negative");
-        }else{
+        } else {
             System.out.println("Error");
         }
     }
@@ -124,13 +122,29 @@ public class JavaStepDefs {
     @Given("Favorite color {string} and Not favorite color {string}")
     public void favoriteColorAndNotFavoriteColor(String color1, String color2) {
         if (color1.equals(color2)) {
-                System.out.println("Equal");
-            } else {
-                System.out.println("Not Equal");
-            }
+            System.out.println("Equal");
+        } else {
+            System.out.println("Not Equal");
         }
     }
 
+
+    @Given("I print {string} day of the week from array")
+    public void iPrintDayOfTheWeekFromArray(String daysOfWeek) {
+        int day = Integer.parseInt(daysOfWeek);
+        String[] numbs = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        switch (day) {
+            case 1 -> System.out.println(numbs[0]);
+            case 2 -> System.out.println(numbs[1]);
+            case 3 -> System.out.println(numbs[2]);
+            case 4 -> System.out.println(numbs[3]);
+            case 5 -> System.out.println(numbs[4]);
+            case 6 -> System.out.println(numbs[5]);
+            case 7 -> System.out.println(numbs[6]);
+            default -> System.err.println("Incorrect week number");
+        }
+    }
+}
 
 
 
