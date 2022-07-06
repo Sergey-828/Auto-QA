@@ -4,6 +4,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 
 public class JavaStepDefs {
     @When("I hello world")
@@ -129,9 +133,8 @@ public class JavaStepDefs {
     }
 
 
-    @Given("I print {string} day of the week from array")
-    public void iPrintDayOfTheWeekFromArray(String daysOfWeek) {
-        int day = Integer.parseInt(daysOfWeek);
+    @Given("I print {int} day of the week from array")
+    public void iPrintDayOfTheWeekFromArray(int day) {
         String[] numbs = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         switch (day) {
             case 1 -> System.out.println(numbs[0]);
@@ -144,10 +147,63 @@ public class JavaStepDefs {
             default -> System.err.println("Incorrect week number");
         }
     }
+
+    @Given("I print {int} day of the week from second array")
+    public void iPrintDayOfTheWeekFromSecondArray(int day) {
+        if (day < 1 || day > 7) {
+            System.out.println("Invalid day of week: " + day);
+        } else {
+            String[] daysOfWeek = {"Su", "Mn", "Tu", "We", "Th", "Fr", "Sa"};
+            System.out.println(daysOfWeek[day - 1]);
+        }
+    }
+
+    @Given("Print num and fruit array")
+    public void printNumAndFruitArray() {
+        System.out.println("String array");
+        String[] fruits = {"plum", "apple", "kiwi"};
+        System.out.println(fruits.length);
+
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+
+        }
+        System.out.println();
+        System.out.println("Numeric array");
+        int[] nums = {7, 3, 5, 8, 2, 9, 11, 12};
+
+        for (int num : nums) {
+            System.out.print(num);
+        }
+    }
+
+    @Given("List Java util")
+    public void listJavaUtil() {
+        System.out.println();
+        System.out.println("ArrayList class");
+        List<String> fruitsList = List.of("plum", "apple", "kiwi");
+        System.out.println(fruitsList);
+        for (String fruit : fruitsList) {
+            System.out.println(fruit + " ");
+        }
+
+    }
+
+    @Given("numsList")
+    public void numslist() {
+        System.out.println();
+        List<Integer> numList = Arrays.asList(7, 3, 5, 8, 2, 9, 11, 12);
+        System.out.println(numList);
+
+        for (int num : numList) {
+            System.out.print(num +" ");
+        }
+        System.out.println();
+
+        numList.sort((i1, i2) -> i2 - i1);
+        System.out.println(numList);
+    }
 }
-
-
-
 
 
 

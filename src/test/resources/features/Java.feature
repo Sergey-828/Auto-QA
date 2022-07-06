@@ -42,4 +42,16 @@
       Given Favorite color "blue" and Not favorite color "red"
 
     Scenario: Arrays week days
-      Given I print "7" day of the week from array
+      Given I print 7 day of the week from array
+
+    Scenario: Arrays for week days second
+      Given I print 2 day of the week from second array
+
+    Scenario: Numeric and fruit array
+      Given Print num and fruit array
+
+    Scenario: Array list
+      Given List Java util
+
+    Scenario: Sorting arrays
+      Given numsList
