@@ -70,3 +70,5 @@
 
       Scenario: Codding-10
         Given  Print all numbers from zero up to "26"
+
+     Scenario: Codding-13

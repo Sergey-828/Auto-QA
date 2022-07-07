@@ -237,9 +237,9 @@ public class JavaStepDefs {
 
     @Given("Prints all integer array")
     public void printsAllIntegerArray() {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         for (int num : array) {
-            System.out.print(num);
+            System.out.println(num);
         }
     }
 
@@ -250,7 +250,7 @@ public class JavaStepDefs {
 
         for (int num : nums) {
             if (num % 2 == 0) {
-                System.out.print(num);
+                System.out.println(num);
             }
         }
     }
@@ -269,14 +269,18 @@ public class JavaStepDefs {
     public int printAllNumbersFromZeroUpTo(String num) {
         int n = Integer.parseInt(num);
 
-        System.out.print( "Print all numbers from 0: ");
+        System.out.print("Print all numbers from 0: ");
         for (int i = 1; i <= n; i++) {
-            System.out.print(i+", ");
+            System.out.print(i + ", ");
         }
         return n;
     }
-
 }
+
+
+
+
+
 
 
 
