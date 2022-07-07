@@ -1,12 +1,17 @@
 package definitions;
 
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+
+import java.util.*;
+
+
+import static java.util.Arrays.*;
+
+
 
 
 public class JavaStepDefs {
@@ -192,18 +197,97 @@ public class JavaStepDefs {
     @Given("numsList")
     public void numslist() {
         System.out.println();
-        List<Integer> numList = Arrays.asList(7, 3, 5, 8, 2, 9, 11, 12);
+        List<Integer> numList = asList(7, 3, 5, 8, 2, 9, 11, 12);
         System.out.println(numList);
 
         for (int num : numList) {
-            System.out.print(num +" ");
+            System.out.print(num + " ");
         }
         System.out.println();
 
         numList.sort((i1, i2) -> i2 - i1);
         System.out.println(numList);
     }
+
+    @Given("I solve coding challenges")
+    public void isolveCodingChallenges() {
+        System.out.println("isolveCodingChallenges metod");
+        swapVars();
+    }
+
+    private void swapVars() {
+        System.out.println("swapVars method");
+        int a = 5;
+        int b = 3;
+        System.out.println("a = " + a + " b = " + b);
+        int temp = a;
+        a = b;
+        b = temp;
+        System.out.println("a = " + a + " b = " + b);
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a = " + a + " b = " + b);
+        a = a * b;
+        b = a / b;
+        a = a / b;
+        System.out.println("a = " + a + " b = " + b);
+    }
+
+
+    @Given("Prints all integer array")
+    public void printsAllIntegerArray() {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8};
+        for (int num : array) {
+            System.out.print(num);
+        }
+    }
+
+    @Given("prints  even numbers from  array")
+    public void printsEvenNumbersFromArray() {
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println("Even numbers: ");
+
+        for (int num : nums) {
+            if (num % 2 == 0) {
+                System.out.print(num);
+            }
+        }
+    }
+
+    @Given("Check if array is empty")
+    public void checkIfArrayIsEmpty() {
+        String[] ar = {};
+        if (ar.length == 0) {
+            System.out.println("Array is empty");
+        } else {
+            System.out.println("Array not empty");
+        }
+    }
+
+    @Given("Print all numbers from zero up to {string}")
+    public int printAllNumbersFromZeroUpTo(String num) {
+        int n = Integer.parseInt(num);
+
+        System.out.print( "Print all numbers from 0: ");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i+", ");
+        }
+        return n;
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

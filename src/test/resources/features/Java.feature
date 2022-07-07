@@ -55,3 +55,18 @@
 
     Scenario: Sorting arrays
       Given numsList
+
+    Scenario: Codding-01
+      Given I solve coding challenges
+
+    Scenario: Codding-07
+      Given Prints all integer array
+
+    Scenario: Codding-08
+      Given  prints  even numbers from  array
+
+    Scenario: Codding-09
+      Given  Check if array is empty
+
+      Scenario: Codding-10
+        Given  Print all numbers from zero up to "26"
