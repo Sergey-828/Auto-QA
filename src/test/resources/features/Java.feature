@@ -72,3 +72,4 @@
         Given  Print all numbers from zero up to "26"
 
      Scenario: Codding-13
+       Given Swaps array data

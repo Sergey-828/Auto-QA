@@ -10,6 +10,7 @@ import java.util.*;
 
 
 import static java.util.Arrays.*;
+import static org.junit.Assert.assertArrayEquals;
 
 
 
@@ -275,6 +276,7 @@ public class JavaStepDefs {
         }
         return n;
     }
+
 }
 
 
