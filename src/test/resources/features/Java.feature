@@ -71,7 +71,8 @@
       Scenario: Codding-10
         Given  Print all numbers from zero up to "26"
 
-     Scenario: : Codding-13
+     Scenario: Codding-13
        Given Swaps array data "5,2,9,7,3"
 
-
+     Scenario: Codding-14
+       Given I work with maps

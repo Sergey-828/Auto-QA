@@ -291,6 +291,36 @@ public class JavaStepDefs {
             System.out.print(i + " ");
         }
     }
+
+    @Given("I work with maps")
+    public void iWorkWithMaps() {
+//        List<String> user1 = List.of("jdoe", "123 Main st", "john.doe@example.com", "welcome", "John Doe");
+//        List<String> user2 = List.of("rroe", "456 Second st", "richard.roe@example.com", "welcome", "Richard Roe");
+
+        Map<String, String> user1 = new HashMap<>();
+        user1.put("username", "jdoe");
+        user1.put("address", "123 Main st");
+        user1.put("email", "john.doe@example.com");
+        user1.put("password", "welcome");
+        user1.put("name", "John Doe");
+        user1.put("password", user1.get("password") + "+1");
+
+        Map<String, String> user2 = new LinkedHashMap<>();
+        user2.put("username", "rroe");
+        user2.put("address", "456 Second st");
+        user2.put("email", "richard.roe@example.com");
+        user2.put("password", "welcome");
+        user2.put("name", "Richard Roe");
+
+        System.out.println(user1.get("username"));
+        System.out.println(user1.get("email"));
+        System.out.println(user1.get("password"));
+        System.out.println(user1.get("name"));
+        System.out.println(user1.get("address"));
+
+        System.out.println(user1);
+        System.out.println(user2);
+    }
 }
 
 
