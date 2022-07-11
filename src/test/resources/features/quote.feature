@@ -16,7 +16,7 @@ Feature: Quote project
   Scenario: Resolution
     Given I go to "quote" page
     And I change resolution to "phone"
-#    And I change resolution to "desktop"
+
 
   Scenario: Fill out fields
     Given I go to "quote" page

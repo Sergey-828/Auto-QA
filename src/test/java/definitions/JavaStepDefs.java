@@ -4,6 +4,7 @@ package definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.apache.commons.lang3.ArrayUtils;
 
 
 import java.util.*;
@@ -176,9 +177,9 @@ public class JavaStepDefs {
         }
         System.out.println();
         System.out.println("Numeric array");
-        int[] nums = {7, 3, 5, 8, 2, 9, 11, 12};
+        int[] numbs = {7, 3, 5, 8, 2, 9, 11, 12};
 
-        for (int num : nums) {
+        for (int num : numbs) {
             System.out.print(num);
         }
     }
@@ -277,6 +278,19 @@ public class JavaStepDefs {
         return n;
     }
 
+    @Given("Swaps array data {string}")
+    public void swapsArrayData(String array) {
+        int[] arr = { 5, 2, 9, 7, 3};
+        System.out.print("Array before swapping ");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        ArrayUtils.swap(arr,2,4);
+        System.out.print("Array after swapping ");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+    }
 }
 
 
