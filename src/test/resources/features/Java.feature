@@ -76,3 +76,12 @@
 
      Scenario: Codding-14
        Given I work with maps
+
+     Scenario: Codding-15
+       Given Reverse string
+
+    Scenario: Codding-16
+      Given Largest element in array
+
+    Scenario: Codding-17
+      Given Reverses words in a sentence

@@ -280,12 +280,12 @@ public class JavaStepDefs {
 
     @Given("Swaps array data {string}")
     public void swapsArrayData(String array) {
-        int[] arr = { 5, 2, 9, 7, 3};
+        int[] arr = {5, 2, 9, 7, 3};
         System.out.print("Array before swapping ");
         for (int i : arr) {
             System.out.print(i + " ");
         }
-        ArrayUtils.swap(arr,2,4);
+        ArrayUtils.swap(arr, 2, 4);
         System.out.print("Array after swapping ");
         for (int i : arr) {
             System.out.print(i + " ");
@@ -321,7 +321,47 @@ public class JavaStepDefs {
         System.out.println(user1);
         System.out.println(user2);
     }
+
+    @Given("Reverse string")
+    public void reverseString() {
+        String notRev = "Dommod";
+        StringBuilder rev = new StringBuilder();
+        System.out.print("Initial String: " + notRev);
+        int n = notRev.length();
+        char[] c = notRev.toCharArray();
+        for (int i = n - 1; i >= 0; i--)
+            rev.append(c[i]);
+        System.out.print("  Reversed string: " + rev);
+
+    }
+
+    @Given("Largest element in array")
+    public void largestElementInArray() {
+        int[] array = {4, 15, 11, 74, 38, 55};
+        int size = array.length;
+        Arrays.sort(array);
+        System.out.println("Array " + Arrays.toString(array));
+        int max = array[size - 1];
+        System.out.println("Largest element is " + max);
+    }
+
+    @Given("Reverses words in a sentence")
+    public String reversesWordsInASentence() {
+
+        String str = "Hello World July";
+        System.out.println("Good sentence: " + str);
+        String rev = reverse(str);
+        System.out.println("Reversed sentence: " + rev);
+        return str;
+    }
+    public static String reverse(String s) {
+        int x = s.indexOf(" ");
+        if(x == -1)
+            return s;
+        return reverse(s.substring(x+1)) +" "+ s.substring(0, x);
+    }
 }
+
 
 
 
