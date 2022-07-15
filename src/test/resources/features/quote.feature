@@ -14,8 +14,9 @@ Feature: Quote project
 
 
   Scenario: Resolution
-    Given I go to "quote" page
-    And I change resolution to "phone"
+    Given I go to "page" page
+    And I change resolution to "res"
+
 
 
   Scenario: Fill out fields

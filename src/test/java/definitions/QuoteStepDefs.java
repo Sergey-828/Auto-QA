@@ -58,7 +58,11 @@ public class QuoteStepDefs {
             getDriver().findElement(By.xpath("//button[@id='formSubmit']")).click();
             Thread.sleep(3000);
         }
+
+
+
     }
+
 
 
 
