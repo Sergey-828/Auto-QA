@@ -85,3 +85,9 @@
 
     Scenario: Codding-17
       Given Reverses words in a sentence
+
+    Scenario: Codding-18
+      Given Print reverse "MiR"
+
+    Scenario: Codding-19
+      Given Print Numbers "n"

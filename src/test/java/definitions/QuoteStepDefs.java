@@ -7,12 +7,9 @@ import org.openqa.selenium.Dimension;
 
 import static support.TestContext.getDriver;
 
-public class QuoteStepDefs {
-    @Given("I go to {string} page")
-    public void iOpenPage(String page) {
-        getDriver().get("https://skryabin.com/market/quote.html");
 
-    }
+public class QuoteStepDefs {
+
 
     @And("I print page details")
     public void iPrintPageDetails() {
@@ -57,6 +54,7 @@ public class QuoteStepDefs {
             getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("jdoe2");
             getDriver().findElement(By.xpath("//button[@id='formSubmit']")).click();
             Thread.sleep(3000);
+
         }
 
 

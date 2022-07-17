@@ -6,12 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.ArrayUtils;
 
-
 import java.util.*;
 
-
-import static java.util.Arrays.*;
-import static org.junit.Assert.assertArrayEquals;
+import static java.util.Arrays.asList;
 
 
 
@@ -359,6 +356,13 @@ public class JavaStepDefs {
         if(x == -1)
             return s;
         return reverse(s.substring(x+1)) +" "+ s.substring(0, x);
+    }
+
+    @Given("Print reverse {string}")
+    public void printReverse(String str) {
+        System.out.println("String: " + str);
+        String reverse = new StringBuffer(str).reverse().toString();
+        System.out.println("Reverse string: " + reverse);
     }
 }
 
