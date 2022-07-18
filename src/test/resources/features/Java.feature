@@ -90,4 +90,13 @@
       Given Print reverse "MiR"
 
     Scenario: Codding-19
-      Given Print Numbers "n"
+      Given Print reverse string "WebDriver"
+
+    Scenario: Codding-20
+      Given Print reverse sting value "HooK"
+
+    Scenario: Codding-21
+      Given Palindrome "civic"
+
+    Scenario: Codding-22
+      Given  Two max numbers in the Array

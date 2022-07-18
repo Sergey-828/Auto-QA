@@ -14,6 +14,8 @@ import static java.util.Arrays.asList;
 
 
 public class JavaStepDefs {
+    private int[] arr;
+
     @When("I hello world")
     public void iHelloWorld() {
         System.out.println("Hello world");
@@ -351,11 +353,12 @@ public class JavaStepDefs {
         System.out.println("Reversed sentence: " + rev);
         return str;
     }
+
     public static String reverse(String s) {
         int x = s.indexOf(" ");
-        if(x == -1)
+        if (x == -1)
             return s;
-        return reverse(s.substring(x+1)) +" "+ s.substring(0, x);
+        return reverse(s.substring(x + 1)) + " " + s.substring(0, x);
     }
 
     @Given("Print reverse {string}")
@@ -364,7 +367,71 @@ public class JavaStepDefs {
         String reverse = new StringBuffer(str).reverse().toString();
         System.out.println("Reverse string: " + reverse);
     }
+
+    @Given("Print reverse string {string}")
+    public void printReverseString(String str) {
+        System.out.println((">>>>>>printReverseString method, param " + str));
+        for (int i = str.length() - 1; i >= 0; i--) {
+            System.out.print(str.charAt(i));
+        }
+        System.out.println();
+    }
+
+    @Given("Print reverse sting value {string}")
+    public void printReverseStingValue(String str) {
+        System.out.println(">>>>>>printReverseString method, param " + str);
+        String reversed = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed = reversed += str.charAt(i);
+        }
+        System.out.println(">>>>>>printReverseString, param " + reversed);
+
+    }
+
+    @Given("Palindrome {string}")
+    public void palindrome(String ent) {
+        String reverse = "";
+        Scanner in = new Scanner(System.in);
+        System.out.println("Entered: " + ent);
+        for (int i = ent.length() - 1; i >= 0; i--)
+            reverse = reverse + ent.charAt(i);
+        if (ent.equals(reverse))
+            System.out.println("Entered is a palindrome.");
+        else
+            System.out.println("Entered not a palindrome.");
+    }
+
+    @Given("Two max numbers in the Array")
+    public void twoMaxNumbersInTheArray() {
+        int[] array = {4, 15, 11, 74, 38, 55};
+        int maxOne = 0;
+        int maxSecond = 0;
+        for(int n : array) {
+            if(maxOne < n) {
+                maxSecond = maxOne;
+                maxOne = n;
+            } else if(maxSecond < n){
+                maxSecond = n;
+            }
+        }
+        System.out.println("Two max numbers: " + maxOne + "," + maxSecond);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
