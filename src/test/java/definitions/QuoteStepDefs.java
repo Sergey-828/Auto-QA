@@ -2,9 +2,11 @@ package definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 
@@ -57,9 +59,50 @@ public class QuoteStepDefs {
 
         }
 
+    @And("I {string} third part agreement")
+    public void iThirdPartAgreement(String action) {
+        getDriver().findElement(By.xpath("//*[@id='thirdPartyButton']")).click();
+        switch (action) {
+            case "accept" -> getDriver().switchTo().alert().accept();
+            case  "decline" -> getDriver().switchTo().alert().dismiss();
+            default -> throw new Error("Incorrect action: " + action);
+        }
+    }
 
+    @And("I fill out contact name {string} and phone {string}")
+    public void iFillOutContactNameAndPhone(String name, String phone) {
+
+        getDriver().switchTo().frame("additionalInfo");
+
+//        getDriver().switchTo().frame("anotherFrame");
+
+        getDriver().findElement(By.xpath("//*[@id='contactPersonName']")).sendKeys(name);
+        getDriver().findElement(By.xpath("//*[@id='contactPersonPhone']")).sendKeys(phone);
+
+//        getDriver().switchTo().parentFrame();
+
+        getDriver().switchTo().defaultContent();
 
     }
+
+    @Then("I verify {string} in related documents")
+    public void iVerifyInRelatedDocuments(String doc) {
+
+        String originalWindow = getDriver().getWindowHandle();
+
+        getDriver().findElement(By.xpath("//button[contains(@onclick, 'new')]")).click();
+        //switch to new window old way
+//        for (String handle : getDriver().getWindowHandles()) {
+//           getDriver().switchTo().window(handle);
+//        }
+        //new way
+        getDriver().getWindowHandles().forEach(h -> getDriver().switchTo().window(h));
+        String docsText = getDriver().findElement(By.xpath("//body")).getText();
+        assertThat(docsText).contains(doc);
+        //switch back to original window
+        getDriver().switchTo().window(originalWindow);
+    }
+}
 
 
 

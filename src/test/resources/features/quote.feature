@@ -18,8 +18,16 @@ Feature: Quote project
     And I change resolution to "res"
 
 
-
   Scenario: Fill out fields
     Given I go to "quote" page
     And I fill out required fields
+
+  @6
+  Scenario: Quote page - alerts, iframe, new window
+    Given I go to "quote" page
+    And I "accept" third part agreement
+    And I fill out contact name "Richard Roe" and phone "0123456789"
+    Then I verify "Document 2" in related documents
+
+
 
