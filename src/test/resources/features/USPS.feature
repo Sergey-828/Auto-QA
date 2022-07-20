@@ -27,3 +27,15 @@
           |  4970 El Camino Real     | Los Altos  | CA     | 94022 |
           |  20  Broad st            | New York   | NY     | 10005 |
           |  440 S.LaSalle st        | Chicago    | IL     | 60605 |
+
+    @usps2
+    Scenario Outline: Validate ZIP code each for addresses
+      Given I go to "usps" page
+      When I go to Lookup ZIP page by address
+      And I fill out "<street>" street, "<city>" city, "<state>" state
+      Then I validate "<zip>" zip code exists in each row of the result
+      Examples:
+        |   street                 | city       | state  | zip   |
+        |  4970 El Camino Real     | Los Altos  | CA     | 94022 |
+#        |  20  Broad st            | New York   | NY     | 10005 |
+#        |  440 S.LaSalle st        | Chicago    | IL     | 60605 |
