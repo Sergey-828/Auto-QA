@@ -100,3 +100,9 @@
 
     Scenario: Codding-22
       Given  Two max numbers in the Array
+
+    Scenario: Codding-23
+      Given FizzBuzz 20
+
+    Scenario: Codding-24
+      Given

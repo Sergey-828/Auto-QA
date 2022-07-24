@@ -13,7 +13,7 @@ import static java.util.Arrays.asList;
 
 
 
-public class JavaStepDefs {
+public class JavaStepDefs<publicc> {
     private int[] arr;
 
     @When("I hello world")
@@ -403,22 +403,38 @@ public class JavaStepDefs {
 
     @Given("Two max numbers in the Array")
     public void twoMaxNumbersInTheArray() {
-        int[] array = {4, 15, 11, 74, 38, 55};
-        int maxOne = 0;
-        int maxSecond = 0;
-        for(int n : array) {
-            if(maxOne < n) {
+        int[] array = {-87, 33, 15, -5, -2, 0, 38};
+        int maxOne = Integer.MIN_VALUE;
+        int maxSecond = Integer.MIN_VALUE;
+        for (int n : array) {
+            if (maxOne < n) {
                 maxSecond = maxOne;
                 maxOne = n;
-            } else if(maxSecond < n){
+            } else if (maxSecond < n) {
                 maxSecond = n;
             }
         }
         System.out.println("Two max numbers: " + maxOne + "," + maxSecond);
+
+    }
+
+    @Given("FizzBuzz {int}")
+    public void fizzbuzz(int target) {
+        System.out.print(">>>>>>> fizzBuzz method, param " + target);
+        for (int num = 1; num <= target; num++) {
+            if (num % 3 == 0 && num % 5 == 0) {
+                System.out.print("FizzBuzz ");
+            } else if (num % 3 == 0) {
+                System.out.print("Fizz ");
+            } else if (num % 5 == 0) {
+                System.out.print("Buzz ");
+            } else {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
     }
 }
-
-
 
 
 
