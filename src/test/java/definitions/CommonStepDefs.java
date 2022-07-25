@@ -14,6 +14,8 @@ public class CommonStepDefs {
             getDriver().get("https://skryabin.com/market/quote.html");
         }else if ("google".equals(page)){
             getDriver().get("https://google.com");
+        }else if ("Converters".equals(page)){
+            getDriver().get("https://www.unitconverters.net");
         } else {
             throw new Error("Unsupported page " + page);
         }
