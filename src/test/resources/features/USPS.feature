@@ -10,7 +10,7 @@ Feature: Zip code
 
 
   Scenario: Calculate price
-    Given I go to "usps" page
+    Given I go to "usps" pagesum
     When I go to Calculate Price Page
     And I select "Canada" with "Postcard" shape
     And I define "2" quantity
@@ -56,4 +56,4 @@ Feature: Zip code
     And I choose view as "Table" on the map
     When I select all in the table
     And I close modal window
-#    Then I verify that summary of all rows of Cost column is equal Approximate Cost in Order Summary
+    Then I verify that summary of all rows of Cost column is equal Approximate Cost in Order Summary

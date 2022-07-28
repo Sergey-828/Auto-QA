@@ -105,4 +105,7 @@
       Given FizzBuzz 20
 
     Scenario: Codding-24
-      Given
+      Given Mask four characters "12345467890"
+
+    Scenario: Codding-25
+      Given  Return the number of vowels "a, e, i, o, u"

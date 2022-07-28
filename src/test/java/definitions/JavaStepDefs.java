@@ -11,9 +11,7 @@ import java.util.*;
 import static java.util.Arrays.asList;
 
 
-
-
-public class JavaStepDefs<publicc> {
+public class JavaStepDefs<publicc, inp> {
     private int[] arr;
 
     @When("I hello world")
@@ -433,9 +431,29 @@ public class JavaStepDefs<publicc> {
             }
             System.out.println();
         }
+    }
 
+    @Given("Mask four characters {string}")
+    public String maskFourCharacters(String nums) {
+        if (nums.length() < 4) {
+            return nums;
+        } else {
+            StringBuilder mask = new StringBuilder();
+            for (int i = 0; i < nums.length(); i++) {
+                if (i >= 4) {
+                    mask.append("#");
+                }
+            }
+            mask.append(nums.substring(nums.length() - 4));
+            System.out.println(mask);
+            return mask.toString();
+        }
     }
 }
+
+
+
+
 
 
 
