@@ -108,4 +108,11 @@
       Given Mask four characters "12345467890"
 
     Scenario: Codding-25
-      Given  Return the number of vowels "a, e, i, o, u"
+      Given  Two elements of an array result in sum
+
+    Scenario: Codding-26
+      Given Convert "patrick" "feeney" into initials
+
+    Scenario: Codding-27
+      Given find Sum Two num
+

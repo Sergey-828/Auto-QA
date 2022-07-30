@@ -257,11 +257,7 @@ public class JavaStepDefs<publicc, inp> {
     @Given("Check if array is empty")
     public void checkIfArrayIsEmpty() {
         String[] ar = {};
-        if (ar.length == 0) {
-            System.out.println("Array is empty");
-        } else {
-            System.out.println("Array not empty");
-        }
+        System.out.println("Array is empty");
     }
 
     @Given("Print all numbers from zero up to {string}")
@@ -449,9 +445,77 @@ public class JavaStepDefs<publicc, inp> {
             return mask.toString();
         }
     }
-}
+
+    @Given("Two elements of an array result in sum")
+    public void twoElementsOfAnArrayResultInSum() {
+        int[] arr = {5, 6, 5, 4, 2, 8};
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    void sort(int[] arr) {
+        System.out.println(">>>>> sort, param " + Arrays.toString(arr));
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
 
 
+    @Given("Convert {string} {string} into initials")
+    public void convertIntoInitials(String first, String last) {
+        first = first.toUpperCase().substring(0, 1);
+        last = last.toUpperCase().substring(0, 1);
+        System.out.println(first + "." + last);
+    }
+    //Second Method:
+//    b) Name to initial
+//    Write a function to convert a name into initials. Strictly takes two words with one space in between them.
+//    The output should be two capital letters with a dot separating them.
+//    It should look like this:
+//    Sam Harris => S.H
+//    patrick feeney => P.F
+//String getInitials(String fullName) {
+//    System.out.println(">>>>> getInitials, param " + fullName);
+//    fullName = fullName.toUpperCase();
+//    String initials = fullName.charAt(0) + ".";
+//    for (int i = 0; i < fullName.length() - 1; i++) {
+//        if (fullName.charAt(i) == ' ') {
+//            initials += fullName.charAt(i + 1);
+//            break;
+//        }
+//    }
+//    return initials;
+//}
+
+
+    @Given("find Sum Two num")
+    //    @Given("Finds if any two elements of an array result in sum")
+//    public void findsIfAnyTwoElementsOfAnArrayResultInSum() {
+//    Entry params {5, 6, 5, 4, 2, 8}  and 12 => true
+//    Entry params {5, 6, 5, 4, 2, 8}  and 4 => false
+
+    public void findSumTwoNum() {
+        int[] arr5 = {5, 6, 5, 4, 2, 8};
+        System.out.println(findsum(arr5, 5));
+    }
+        boolean findsum ( int[] arr, int sum){
+            System.out.println(">>>>> findSum, param " + Arrays.toString(arr) + " and " + sum);
+            for (int i = 0; i < arr.length - 1; i++) {
+                for (int j = i + 1; j < arr.length; j++) {
+                    if (arr[i] + arr[j] == sum) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
 
 
 
