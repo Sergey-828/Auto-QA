@@ -5,6 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import support.TestContext;
+
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
@@ -102,7 +105,35 @@ public class QuoteStepDefs {
         //switch back to original window
         getDriver().switchTo().window(originalWindow);
     }
+
+    @And("I fill out required fields for {string} user")
+    public void iFillOutRequiredFieldsForUser(String role)  {
+        Map<String, String> user = TestContext.getDataByFileName(role);
+        System.out.println(user);
+        getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys(user.get("username"));
+        getDriver().findElement(By.xpath("//input[@id='password']")).sendKeys("password");
+        getDriver().findElement(By.xpath("//input[@id='confirmPassword']")).sendKeys("password");
+        getDriver().findElement(By.xpath("//input[@type='number']")).sendKeys(user.get("phone"));
+//        getDriver().findElement(By.xpath("//input[@name='username']")).clear();
+//        getDriver().findElement(By.xpath("//input[@name='username']")).sendKeys("jdoe2");
+//        getDriver().findElement(By.xpath("//button[@id='formSubmit']")).click();
+    }
+
+    @And("I verify thet fields values saved correctly for {string}user")
+    public void iVerifyThatFieldsValuesSavedCorrectlyForUser(String role) {
+        String originalWindow = getDriver().getWindowHandle();
+
+        getDriver().findElement(By.xpath("//button[contains(@onclick, 'new')]")).click();
+
+        //new way
+        getDriver().getWindowHandles().forEach(h -> getDriver().switchTo().window(h));
+        String docsText = getDriver().findElement(By.xpath("//body")).getText();
+        assertThat(docsText).contains();
+        //switch back to original window
+        getDriver().switchTo().window(originalWindow);
+    }
 }
+
 
 
 

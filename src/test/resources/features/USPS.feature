@@ -57,3 +57,6 @@ Feature: Zip code
     When I select all in the table
     And I close modal window
     Then I verify that summary of all rows of Cost column is equal Approximate Cost in Order Summary
+
+
+

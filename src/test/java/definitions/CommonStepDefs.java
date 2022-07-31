@@ -16,6 +16,8 @@ public class CommonStepDefs {
             getDriver().get("https://google.com");
         }else if ("Converters".equals(page)){
             getDriver().get("https://www.unitconverters.net");
+        }else if ("ups".equals(page)){
+            getDriver().get("https://www.ups.com/us/en/Home.page");
         } else {
             throw new Error("Unsupported page " + page);
         }

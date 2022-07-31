@@ -29,5 +29,12 @@ Feature: Quote project
     And I fill out contact name "Richard Roe" and phone "0123456789"
     Then I verify "Document 2" in related documents
 
+  Scenario: e2e
+    Given I go to "quote" page
+    And I fill out required fields for "regular" user
+#    And  I verify that fields values saved correctly for "regular"user
+    And I wait for 3 sec
+
+
 
 
