@@ -1,0 +1,12 @@
+
+  username   :  jdoe
+  email      :  john.doe@example.com
+  password   :  welcome
+  firstName  :  John
+  lastName   :  Doe
+  phone      :  "1234567890"
+  address    :  4970 El Camino Real, Los Altos, CA 94022
+  street     :  4970 El Camino Real
+  zip        :  "94022"
+  city       :  Los Altos
+  state      :  California
