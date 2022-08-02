@@ -116,3 +116,8 @@
     Scenario: Codding-27
       Given find Sum Two num
 
+    Scenario: Codding-28
+       Given Calculate the average of the numbers in a given list.
+
+      Scenario: Codding-29
+        Given  If there's any duplicates

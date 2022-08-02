@@ -517,9 +517,9 @@ public class JavaStepDefs<publicc, inp> {
         return false;
     }
 
-    @Given("Calculate the average of the numbers in a given {string}.")
-    public int calculateTheAverageOfTheNumbersInAGiven(String array) {
-        int[] arr = {5, 6, 5, 4, 2, 8 };
+    @Given("Calculate the average of the numbers in a given list.")
+    public int calculateTheAverageOfTheNumbersInAGivenlist() {
+        int[] arr = {5, 6, 5, 4, 2, 8};
         System.out.println(Arrays.toString(arr));
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -530,6 +530,23 @@ public class JavaStepDefs<publicc, inp> {
         System.out.print("Average: " + aver);
         return sum;
 
+    }
+
+    @Given("If there's any duplicates")
+    public boolean ifThereSAnyDuplicates() {
+        int[] arr = {5, 6, 9, 4, 2, 8};
+        System.out.println(Arrays.toString(arr));
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println("True");
+                    return true;
+                }
+            }
+        }
+        System.out.println("False");
+        return false;
     }
 }
 
