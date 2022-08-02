@@ -504,18 +504,35 @@ public class JavaStepDefs<publicc, inp> {
         int[] arr5 = {5, 6, 5, 4, 2, 8};
         System.out.println(findsum(arr5, 5));
     }
-        boolean findsum ( int[] arr, int sum){
-            System.out.println(">>>>> findSum, param " + Arrays.toString(arr) + " and " + sum);
-            for (int i = 0; i < arr.length - 1; i++) {
-                for (int j = i + 1; j < arr.length; j++) {
-                    if (arr[i] + arr[j] == sum) {
-                        return true;
-                    }
+
+    boolean findsum(int[] arr, int sum) {
+        System.out.println(">>>>> findSum, param " + Arrays.toString(arr) + " and " + sum);
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] + arr[j] == sum) {
+                    return true;
                 }
             }
-            return false;
         }
+        return false;
     }
+
+    @Given("Calculate the average of the numbers in a given {string}.")
+    public int calculateTheAverageOfTheNumbersInAGiven(String array) {
+        int[] arr = {5, 6, 5, 4, 2, 8 };
+        System.out.println(Arrays.toString(arr));
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        System.out.println("Sum: " + sum);
+        int aver = sum / arr.length;
+        System.out.print("Average: " + aver);
+        return sum;
+
+    }
+}
+
 
 
 

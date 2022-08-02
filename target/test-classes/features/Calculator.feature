@@ -11,4 +11,3 @@ Feature: Calculator
     And I enter "25000" price, "60" months, "4.5" interest, "5000" downpayment, "0" trade-in, "California" state, "7" percent tax, "300" fees
     And I calculate
     Then I verify monthly pay is "$372.86"
-     And I wait for 3 sec
