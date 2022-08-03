@@ -5,6 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.ArrayUtils;
+import pages.java.Cat;
+import pages.java.Dog;
 
 import java.util.*;
 
@@ -548,7 +550,44 @@ public class JavaStepDefs<publicc, inp> {
         System.out.println("False");
         return false;
     }
+
+    @Given("Fibonacci")
+    public void fibonacci(int seq) {
+        //1 2 3 4 5 6  7  8  9  10
+        //1,1,2,3,5,8,13,21,34,55
+
+        int prevFib = 0;
+        int nextFib = 1;
+        for (int i = 1; i < seq; i++) {
+            nextFib = prevFib + nextFib;
+        }
+    }
+
+    @Given("I work with classes")
+    public void iWorkWithClasses() {
+        System.out.println("Working with classes");
+        Cat cat1 = new Cat();
+        cat1.walk();
+        Cat cat2 = new Cat();
+        cat2.walk();
+
+        Cat cat3 = new Cat ("Tom");
+        cat3.walk();
+
+        cat1.setName("Charlie");
+        cat1.walk();
+        cat1.eat("fish");
+        cat1.sleep();
+        cat1.speak();
+
+        Dog dog1 = new Dog("Cooper");
+        dog1.walk();
+        dog1.eat("bone");
+        dog1.sleep();
+        dog1.speak();
+    }
 }
+
 
 
 
